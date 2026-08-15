@@ -1,0 +1,36 @@
+---
+name: CI
+
+"on":
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install quality and docs dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff yamllint mkdocs mkdocs-material
+
+      - name: Run Ruff linting
+        run: ruff check src experiments infra
+
+      - name: Run YAML linting
+        run: yamllint .
+
+      - name: Build documentation
+        run: mkdocs build --strict

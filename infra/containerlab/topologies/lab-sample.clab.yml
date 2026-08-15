@@ -1,0 +1,20 @@
+---
+# Sample Containerlab topology for FRR/Alpine connectivity testing.
+name: lab-sample
+
+topology:
+  nodes:
+    r1:
+      kind: linux
+      image: frrouting/frr:latest
+      binds:
+        # Optional: mount FRR daemon config if available.
+        - ./frr/daemons:/etc/frr/daemons:ro
+    h1:
+      kind: linux
+      image: alpine:3.20
+      exec:
+        - ip addr add 10.10.10.2/24 dev eth1
+        - ip link set eth1 up
+  links:
+    - endpoints: ["r1:eth1", "h1:eth1"]

@@ -1,0 +1,21 @@
+---
+site_name: Network Infrastructure Research Workstation
+site_description: Docs-as-code portal for network infrastructure research
+site_url: https://example.local/research-workstation
+repo_name: MatheusMenezesss/Redes---LSEC
+repo_url: https://github.com/MatheusMenezesss/Redes---LSEC
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - RFCs:
+      - RFC Template: rfcs/0000-rfc-template.md
