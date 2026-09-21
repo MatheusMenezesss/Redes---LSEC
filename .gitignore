@@ -1,0 +1,4 @@
+#pastas ignoradas pelo git
+*.csv
+.env
+.venv
