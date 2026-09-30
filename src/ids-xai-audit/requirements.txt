@@ -1,1 +1,8 @@
-kagglehub[pandas-datasets]
+# Dependências do pipeline de dados (download + tratamento) do ids-xai-audit.
+# Instale com: pip install -r requirements.txt   (Python >= 3.11)
+kagglehub>=0.3        # download do CICIDS2017 a partir do Kaggle (sem credenciais)
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.3     # set_output(transform="pandas"), StandardScaler, FunctionTransformer
+pyarrow>=14           # leitura/escrita Parquet (compressão zstd)
+joblib>=1.3           # serialização do scaler ajustado
