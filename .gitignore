@@ -2,3 +2,9 @@
 *.csv
 .env
 .venv
+# ids-xai-audit: dados brutos/processados e artefatos gerados (regeráveis pelos scripts)
+src/ids-xai-audit/data/raw/
+src/ids-xai-audit/data/processed/
+*.parquet
+*.joblib
+__pycache__/
